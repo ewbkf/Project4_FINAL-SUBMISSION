@@ -17,6 +17,6 @@ public:
 	void    setDuration(int);
 	string  getArtist();
 	int     getDuration();
-
+	void print();
 	void print(ostream& o);
 };

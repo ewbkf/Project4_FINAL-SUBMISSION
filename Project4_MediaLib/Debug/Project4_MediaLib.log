@@ -1,2 +1,6 @@
 ﻿  Project4_Main.cpp
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4_MediaLib\Project4_MediaLib\P4_Functions.h(38,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4_MediaLib\Project4_MediaLib\P4_Functions.h(92,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4_MediaLib\Project4_MediaLib\Project4_Main.cpp(46,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4_MediaLib\Project4_MediaLib\Project4_Main.cpp(47,27): warning C4018: '<': signed/unsigned mismatch
   Project4_MediaLib.vcxproj -> C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4_MediaLib\Debug\Project4_MediaLib.exe

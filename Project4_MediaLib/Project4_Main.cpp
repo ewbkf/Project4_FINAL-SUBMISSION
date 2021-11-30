@@ -17,7 +17,7 @@ int main() {
     ifstream inFile;
     ofstream outFile;
     vector <Media*> myLib;
-    vector <vector <string>> holdingArea; 
+    vector <vector <string>> holdingArea;
 
     try {
         inFile.exceptions(ifstream::failbit);
@@ -33,4 +33,23 @@ int main() {
     }
 
     csvToVector(holdingArea, inFile);
+    newEntry(myLib, holdingArea);
+
+    /*
+    for (int i = 0; i < (myLib.size()-1); i++) {
+        myLib.at(i)->print(outFile);
+    }
+    */
+
+    //(*myLib.at(0)).print(outFile);
+
+    for (int i = 0; i < holdingArea.size(); i++) {
+        for (int j = 0; j < holdingArea.at(i).size(); j++) {
+            cout << holdingArea.at(i).at(j) << " ";
+        }
+        cout << endl;
+    }
+
+    cout << endl << holdingArea.size();
+    cout << endl << myLib.size();
 }

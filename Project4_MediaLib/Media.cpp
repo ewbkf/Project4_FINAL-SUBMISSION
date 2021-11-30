@@ -17,7 +17,7 @@ Media::Media(char type, string t, int r, int yr, string g) {
 	rating = r;
 	yearReleased = yr;
 	genre = g;
-	cout << title << ":" << this->title << endl;
+	cout << "title :" << this->title << endl;
 }
 
 void Media::setType(char c) { this->type = c; }

@@ -22,6 +22,9 @@ string Music::getArtist() { return artist; }
 int    Music::getDuration() { return duration; }
 void   Music::setArtist(string a) { artist = a; }
 void   Music::setDuration(int d) { duration = d; }
+void   Music::print() {
+	cout << "Song: " << title << " : " << artist << endl;
+}
 void   Music::print(ostream& o) {
 	o << "Song: " << title << " : " << artist << endl;
 }
