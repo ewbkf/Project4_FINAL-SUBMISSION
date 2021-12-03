@@ -12,7 +12,21 @@
 #include "Music.h"
 using namespace std;
 
-//Vector sort function ===================================================================================================================
+//Code from outside sources ===============================================================================================================
+//CODE TO REMOVE TRAILING SPACES AT END OF STRING
+//Cited from Peteris on StackOverflow
+string remove_spaces(const string& s)
+{
+	int last = s.size() - 1;
+	while (last >= 0 && s[last] == ' ')
+		--last;
+	return s.substr(0, last + 1);
+}
+//=========================================================================================================================================
+
+
+
+//Vector sort function ====================================================================================================================
 void vectorSortOMatic(vector<Media*>& media) {
 	int minVal;
 	vector<Media*> tempVec;
@@ -29,61 +43,71 @@ void vectorSortOMatic(vector<Media*>& media) {
 		}
 	}
 }
-//========================================================================================================================================
-
-
+//=========================================================================================================================================
 
 
 
 // Search for stars functions =============================================================================================================
 void listMovieStars(vector<Media*>& media) {
 	//	Movie movie = getMovie(movieName); 
-
 	string movieName;
+	vector<string> result; 
+	bool matchFound = false; 
 	cout << "ENTER A MOVIE NAME: ";
-	cin >> movieName;
-	//cout << endl; 
-
-	for (int i = 0; i < media.size(); i++) cout << "+"; // formatting 
-	if ((media.at(i)->getType() == 'M') && (movieName == media.at(i).getName) {
-
-		cout << endl;
-			cout << "THE STARS OF THE MOVIE " << media.getTitle() << " ARE:\n"; // gets the movie title
-			for (int i = 0; i < media.size(); i++) cout << "=";
-			cout << endl; // formatting 
-
-			for (string star : media.getStars()) cout << star << endl; // gets the stars of the movie and prints it 
+	cin.ignore();
+	getline(cin, movieName);
+	cout << endl; 
+	for (int i = 0; i < media.size(); i++) {
+		if (media.at(i)->getType() == 'M'){
+			if ((movieName == static_cast<Movie*>(media.at(i))->getTitle())) {
+				matchFound = true;
+				cout << endl;
+				cout << "THE STARS OF THE MOVIE > " << static_cast<Movie*>(media.at(i))->getTitle() << " < ARE:" << endl; // gets the movie title
+				result = static_cast<Movie*>(media.at(i))->getStars();
+				if (!result.empty()) {
+					for (int j = 0; j < result.size(); j++) {
+						cout << result.at(j) << endl; // gets the stars of the movie and prints it 
+					}
+				}
+				else {
+					cout << "Oops, looks like something might have gone wrong, there are no stars listed for that one." << endl;
+				}
+			}
+		}
+	}
+	if (!matchFound) {
+		cout << "We couldn't find that Movie in your library. Please try again." << endl;
 	}
 }
 
 void findStar(vector<Media*>& media) {
-	for (int i = 0; i < 40; i++) {
-		cout << "+";
-	}
-	cout << endl; // formatting
-
 	string starName;
-
+	vector<string> s;
 	cout << "ENTER A STAR NAME: ";
-	cin >> starName;
+	cin.ignore();
+	getline(cin, starName);
 
 	for (int i = 0; i < (media.size() - 1); i++) { // Loops through the media library (all)
-
-		if (media.at(i)->getType() == 'M') (starName == media.at(i).getName()){ // Only looks at the books
-
-			cout << starName << " appears in the following movie(s):\n"; // title 
-
-
-			cout << media.at(i)->getTitle() << endl;
-
+		if (media.at(i)->getType() == 'M') { // Only looks at the books
+			for (int j = 0; j < static_cast<Movie*>(media.at(i))->getStars().size(); j++) {
+				if (starName == static_cast<Movie*>(media.at(i))->getStars().at(j)) {
+					s.push_back(static_cast<Movie*>(media.at(i))->getTitle());
+				}
+			}
 		}
 	}
+	if(!s.empty()){
+		cout << starName << " appears in the following movie(s):\n"; // title
+		for (int i = 0; i < s.size(); i++) {
+			cout << s.at(i) << endl;
+		}
+	}
+	else {
+		cout << "We're sorry, we couldn't find any results for the following star." << endl;
+		cout << "If you believe you have reached this message in error please check your entry and try again." << endl;
+	}
 }
-
-
-
-
-
+//=======================================================================================================================================
 
 
 
@@ -107,7 +131,7 @@ void printMenu() {										//Prints the menu.
 	cout << "|__________________________________|" << endl;
 }
 
-void PrintBookList(vector<Media*>& media) {
+void printBookList(vector<Media*>& media) {
 	cout << right << setw(30) << " ----------------------- " << endl;
 	cout << right << setw(30) << "|   B O O K   L I S T   |" << endl; // Prints out the title
 	cout << right << setw(30) << " ----------------------- " << endl;
@@ -126,7 +150,7 @@ void PrintBookList(vector<Media*>& media) {
 	cout << "-----------------------------------------------------------------------------------------------" << endl;
 }
 
-void PrintMovieList(vector<Media*>& media) {
+void printMovieList(vector<Media*>& media) {
 	cout << right << setw(30) << " ----------------------- " << endl;
 	cout << right << setw(30) << "|  M O V I E   L I S T  |" << endl; // Prints out the title 
 	cout << right << setw(30) << " ----------------------- " << endl;
@@ -145,7 +169,7 @@ void PrintMovieList(vector<Media*>& media) {
 	cout << "-----------------------------------------------------------------------------------------------" << endl;
 }
 
-void PrintSongList(vector<Media*>& media) {
+void printSongList(vector<Media*>& media) {
 	cout << right << setw(30) << " --------------------- " << endl;
 	cout << right << setw(30) << "|  S O N G   L I S T  |" << endl; // Prints out the title 
 	cout << right << setw(30) << " --------------------- " << endl;
@@ -164,7 +188,7 @@ void PrintSongList(vector<Media*>& media) {
 	cout << "-----------------------------------------------------------------------------------------------" << endl;
 }
 
-void PrintMedia(vector<Media*>& media) {
+void printMedia(vector<Media*>& media) {
 	cout << "---------------------------------" << endl;
 	cout << "P R I N T I N G  A L L  M E D I A" << endl;
 	cout << "---------------------------------" << endl << endl;
@@ -212,7 +236,7 @@ void PrintMedia(vector<Media*>& media) {
 	cout << "-----------------------------------------------------------------------------------------------" << endl;
 }
 
-void PrintSortedMedia(vector<Media*>& media) {
+void printSortedMedia(vector<Media*>& media) {
 	vector<Media*> newVec; //we have to declare a new vector to sort, otherwise, we will perminantly alter the origional vector. 
 	newVec = media;
 
@@ -266,7 +290,7 @@ void PrintSortedMedia(vector<Media*>& media) {
 	cout << "-----------------------------------------------------------------------------------------------" << endl;
 }
 
-void PrintMediaCount(vector<Media*> v) {
+void printMediaCount(vector<Media*> v) {
 	int m = 0;
 	int b = 0;
 	int s = 0;
@@ -310,6 +334,7 @@ void newM(vector<Media*> &vP, vector<vector<string>> vS, int i1, ofstream& eL) {
 	try {
 		//builds the vector of stars to be used in the constructor.
 		for (int i = 7; i < vS.at(i1).size(); i++) {
+			vS.at(i1).at(i) = remove_spaces(vS.at(i1).at(i));			//some of the Stars had trailing whitespace that would confuse the search function. This should fix that. 
 			stars.push_back(vS.at(i1).at(i));
 		}
 		
@@ -323,10 +348,14 @@ void newM(vector<Media*> &vP, vector<vector<string>> vS, int i1, ofstream& eL) {
 	}
 	catch (out_of_range) {
 		cout << "You goofed up your iterator. Nice going.";
-		abort();
+		exit(1);
 	}
 	catch (invalid_argument) {
-		eL << "Invalid Argument in the following entry: " << vS.at(i1).at(1) << endl; 
+		eL << "Invalid Argument in the following entry: ";
+		for (int i = 0; i < vS.at(i1).size(); i++) {
+			eL << vS.at(i1).at(i) << " ";
+		}
+		eL << endl;
 	}
 
 }
@@ -342,7 +371,11 @@ void newS(vector<Media*> &vP, vector<vector<string>> vS, int i1, ofstream& eL) {
 		eL << "OOR Error at " << i1 << endl;
 	}
 	catch (invalid_argument) {
-		eL << "Invalid Argument in the following entry: " << vS.at(i1).at(1) << endl;
+		eL << "Invalid Argument in the following entry: ";
+		for (int i = 0; i < vS.at(i1).size(); i++) {
+			eL << vS.at(i1).at(i) << " ";
+		}
+		eL << endl;
 	}
 }
 
@@ -355,10 +388,18 @@ void newB(vector<Media*> &vP, vector<vector<string>> vS, int i1, ofstream& eL) {
 		vP.push_back(newMedia);
 	}
 	catch(out_of_range){
-		eL << "Item missing at " << i1 << endl;
+		eL << "Item missing in the following entry: ";
+		for (int i = 0; i < vS.at(i1).size(); i++) {
+			eL << vS.at(i1).at(i) << " ";
+		}
+		eL << endl;
 	}
 	catch (invalid_argument) {
-		eL << "Invalid Argument in the following entry: " << vS.at(i1).at(1) << endl;
+		eL << "Invalid Argument in the following entry: ";
+		for (int i = 0; i < vS.at(i1).size(); i++) {
+			eL << vS.at(i1).at(i) << " ";
+		}
+		eL << endl;
 	}
 }
 
@@ -419,7 +460,7 @@ void csvToVector(vector<vector<string>>& recipientVector, ifstream& donorCSV) {
 
 
 //These are extra features! SHUFFLE =======================================================================================================
-void RandomBook(vector<Media*>& media) {
+void randomBook(vector<Media*>& media) {
 	vector<string> randomBookV;
 	for (int i = 0; i < (media.size() - 1); i++) { // Loops through the media library (all)
 		if (media.at(i)->getType() == 'B') { // Only looks at the books
@@ -432,7 +473,7 @@ void RandomBook(vector<Media*>& media) {
 	cout << "Enjoy!" << endl;
 }
 
-void RandomMovie(vector<Media*>& media) {
+void randomMovie(vector<Media*>& media) {
 	vector<string> randomMovieV;
 	for (int i = 0; i < (media.size() - 1); i++) { // Loops through the media library (all)
 		if (media.at(i)->getType() == 'M') { // Only looks at the books
@@ -445,7 +486,7 @@ void RandomMovie(vector<Media*>& media) {
 	cout << "Enjoy!" << endl;
 }
 
-void RandomSong(vector<Media*>& media) {
+void randomSong(vector<Media*>& media) {
 	vector<string> randomSongV;
 	for (int i = 0; i < (media.size() - 1); i++) { // Loops through the media library (all)
 		if (media.at(i)->getType() == 'S') { // Only looks at the books
@@ -470,41 +511,43 @@ void menuSwitch(vector<Media *> v, ofstream& eL) {
 		try {
 			actionChar = 'x';
 			printMenu();
+			cout << endl << "Please make a selection from the menu above: ";
 			cin >> actionChar;
+			cout << endl;
 			actionChar = toupper(actionChar);
 			switch (actionChar) {
 			case 'M':
-				PrintMovieList(v);
+				printMovieList(v);
 				break;
 			case 'B':
-				PrintBookList(v);
+				printBookList(v);
 				break;
 			case 'S':
-				PrintSongList(v);
+				printSongList(v);
 				break;
 			case 'A':
-				PrintMedia(v);
+				printMedia(v);
 				break;
 			case 'F':
-
+				findStar(v);
 				break;
 			case 'G':
-
+				listMovieStars(v);
 				break;
 			case 'T':
-				PrintMediaCount(v);
+				printMediaCount(v);
 				break;
 			case '1':
-				RandomSong(v);
+				randomSong(v);
 				break;
 			case '2':
-				RandomMovie(v);
+				randomMovie(v);
 				break;
 			case '3':
-				RandomBook(v);
+				randomBook(v);
 				break;
 			case '4':
-				PrintSortedMedia(v);
+				printSortedMedia(v);
 				break;
 			case 'Q':
 				cout << "------------------------------------" << endl;

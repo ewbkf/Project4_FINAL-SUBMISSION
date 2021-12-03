@@ -1,4 +1,4 @@
-Invalid Argument in the following entry: Hidden Figures
-Item missing at 11
-Invalid Argument in the following entry: So I Married an Axe Murderer
-Invalid Argument in the following entry: \"Thank u\
+Invalid Argument in the following entry: M Hidden Figures 9 Drama 126 2016 Jaraji P Henson Octavia Spencer Janelle Monae 
+Item missing in the following entry: B Fahrenheit 451 Ray Bradbury Science Fiction 256 1953 
+Invalid Argument in the following entry: M So I Married an Axe Murderer Thomas Schlamme  Comedy 93 1993 Mike Meyers Nancy Travis   
+Invalid Argument in the following entry: S "Thank u next" Ariana Grande 8 Pop 207 2019  

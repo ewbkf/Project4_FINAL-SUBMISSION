@@ -64,7 +64,7 @@ S,Something,Snarky Puppy ft.Lahlah Hathaway,10,R&B - Jazz,464,2015
 S,Stayin' Alive,Bee Gees,10,Pop,419,1979 
 S,Sweet Caroline,Neil Diamond,10,Rock,203,1969 
 S,Sweet Life,Frank Ocean,8,Pop,262,2012 
-S,\"Thank u\,next\",Ariana Grande,8,Pop,207,2019 
+S,"Thank u,next",Ariana Grande,8,Pop,207,2019 
 S,The Mountain Top,Lena Raine,10,Video Game Soundtrack,259,2021
 S,Tik Tok,Kesha,9,Pop,199,2009
 S,Tranquility Base Hotel & Casino,Arctic Monkeys,10,Rock,211,2018

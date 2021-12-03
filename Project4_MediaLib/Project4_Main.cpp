@@ -38,8 +38,6 @@ int main() {
 
     csvToVector(holdingArea, inFile);
     newEntry(myLib, holdingArea, errorLog);
-    //vectorSortOMatic(myLib);
     
     menuSwitch(myLib, errorLog);
-
 }

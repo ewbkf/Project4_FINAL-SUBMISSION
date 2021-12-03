@@ -1,3 +1,4 @@
 ﻿  Project4_Main.cpp
-C:\School\UMKC\Fall2021\CS201R\Project 4 Media Library\Project-4-Media-Library\Project4_MediaLib\Project4_Main.cpp(22,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Project4_MediaLib.vcxproj -> C:\School\UMKC\Fall2021\CS201R\Project 4 Media Library\Project-4-Media-Library\x64\Debug\Project4_MediaLib.exe
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4\Project-4-Media-Library\Project4_MediaLib\P4_Functions.h(20,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4\Project-4-Media-Library\Project4_MediaLib\Project4_Main.cpp(22,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Project4_MediaLib.vcxproj -> C:\Users\ethan\Documents\School\UMKC\Fall2021\CS201R\Program4_MediaLib\Project4\Project-4-Media-Library\x64\Debug\Project4_MediaLib.exe
